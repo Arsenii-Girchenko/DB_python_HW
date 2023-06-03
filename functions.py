@@ -140,24 +140,6 @@ def remove_client(cursor, client_id):
         )
     cursor.execute(del_client)
     return print(f'Client removed')
-    
-# def find_client(cursor, first_name, last_name, e_mail, phone_number):
-#     find_client = sql.SQL("""
-#         SELECT c.clients_id FROM clients c
-#             WHERE (c.first_name = {first_name} 
-#             AND c.last_name = {last_name}
-#             AND c.e_mail = {e_mail})
-#             OR (c.id = (SELECT c.id
-#                 FROM clients c
-#                 JOIN clientsphones cp ON c.id = cp.clients_id
-#                 JOIN phones p ON cp.phones_id = p.id
-#                 WHERE p.phone_number = {phone_number}));
-#         """).format(
-            
-#         )
-#     cursor.execute(find_client)
-#     result = cursor.fetchone()
-#     return print(f'CLient\'s ID: {result[0]}')
 
 def find_client(cursor, client_parameter):
     find_client = sql.SQL("""
